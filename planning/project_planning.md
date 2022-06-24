@@ -4,9 +4,17 @@ React, JS, HTML, CSS. Deployment on Github Pages.
 
 #### Frontend Goals
 
+- successful implementation of the backend features that the user can take advantage of to interact with the application
+- clear area for a user to create their own account
+    - maybe introduce the application idea and have the 'create user' section/button/etc be right under it upon pageload
+- section to describe how to use the application/suggestions for the user
+    - will require different routes in the React app
+- color scheme that aids in easy visibility/reading
+- stretch goal: possible implementation of React Spring for animations on the site
+
 ### Backend Technologies
 
-Django, Python, PostgresQL. Deployment on Heroku.
+Django, Python, PostgreSQL. Deployment on Heroku.
 
 #### Backend Goals
 
@@ -27,3 +35,5 @@ Django, Python, PostgresQL. Deployment on Heroku.
         - morning routine
         - evening routine
         - work routine
+
+### Wireframes
