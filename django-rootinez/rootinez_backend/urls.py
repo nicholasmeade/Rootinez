@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls'))
+    # path('register/', views.registerPage, name='register'),
+    # path('login/', views.loginPage, name='login'),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('api.urls')),
+    # path('', include('rootinez_backend.urls')),
 ]
