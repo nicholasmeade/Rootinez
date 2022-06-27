@@ -15,7 +15,7 @@ class RoutinesView(APIView):
         routines = RoutineSerializer(data=request.data)
         if routines.is_valid():
             routines.save()
-            return Response(routines.data, status=status.HTPP_201_CREATED)
+            return Response(routines.data, status=status.HTTP_201_CREATED)
         else:
             return Response(routines.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -35,6 +35,6 @@ class RoutineView(APIView):
         updated_routine = RoutineSerializer(routine, data=request.data)
         if updated_routine.is_valid():
             updated_routine.save()
-            return Response(updated_mango.data)
+            return Response(updated_routine.data)
         else:
             return Response(updated_routine.errors, status=status.HTTP_400_BAD_REQUEST)
