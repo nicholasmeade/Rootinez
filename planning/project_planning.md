@@ -38,4 +38,4 @@ Django, Python, PostgreSQL. Deployment on Heroku.
 
 ### Wireframes
 
-(Layout)[https://www.figma.com/file/gO2vNMlENgS608f14cp0Qz/Rootinez?node-id=0%3A1]
+[Layout](https://www.figma.com/file/gO2vNMlENgS608f14cp0Qz/Rootinez?node-id=0%3A1)
