@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
+import apiUrl from '../apiUrl'
 
 const UserHome = () => {
+    // state for loading routines upon page load and/or when the routine list is updated
+    const [populateRoutines, setPopulateRoutines] = useState({})
+
+    // API call to database to populate the user's routines on page load and/or when the routine list is updated
+    useEffect(() => {
+        // fetching routine info from API
+        fetch(`${apiUrl}routines`)
+            .then(response => response.json())
+            .then(data => console.log(data))
+    }, []);
+
     // dynamic user greeting based on their time zone
     const userGreeting = () => {
         // obtain the current date and hour of the user
@@ -19,8 +31,6 @@ const UserHome = () => {
             }
         return greeting
     }
-
-    // api call to database to populate the user's routines on page load
 
     return ( 
         <div className="userhome-container">
