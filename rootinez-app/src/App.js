@@ -15,6 +15,7 @@ function App() {
         <button><Link className='register-tab' to='/register'>Register Here</Link></button>
         <button><Link className='howto-tab' to='/howto'>Tutorial</Link></button>
         <button><Link className='login-tab' to='/login'>Login</Link></button>
+        <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
       </header>
       <main>
         <Routes>
