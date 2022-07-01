@@ -1,5 +1,6 @@
 import './App.css';
 import {Routes, Route, Link, Navigate} from 'react-router-dom'
+import { useState } from 'react';
 import Home from './Components/Home';
 import HowTo from './Components/HowTo';
 import Register from './Components/Register';
@@ -8,6 +9,16 @@ import About from './Components/About';
 import Login from './Components/Login';
 
 function App() {
+  // useState of token for authentication
+  const [token, setToken] = useState('')
+
+  // setting user's token for authentication to be passed between components
+  const loginToken = (key) => {
+    setToken(key)
+    console.log(token)
+    console.log(key)
+  }
+
   return (
     <div className='App'>
       <header className='header'>
@@ -20,9 +31,9 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/userhome' element={<UserHome />} />
+          <Route path='/register' element={<Register loginToken={loginToken}/>} />
+          <Route path='/login' element={<Login loginToken={loginToken} />} />
+          <Route path='/userhome' element={<UserHome loginToken={loginToken} />} />
           <Route path='/howto' element={<HowTo />} />
           <Route path='/about' element={<About />} />
         </Routes>

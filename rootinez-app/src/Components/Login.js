@@ -1,12 +1,15 @@
-import { render } from "@testing-library/react";
 import { useState } from "react";
 import apiUrl from "../apiUrl";
+import {Routes, Route, Link, Navigate} from 'react-router-dom'
+import { useParams } from "react-router";
 
-const Login = () => {
+const Login = (props) => {
     // useState of username field
     const [username, setUsername] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
+
+    let params = useParams()
 
     // capturing username input to update state of username
     const updateUsername = (event) => {
@@ -28,9 +31,10 @@ const Login = () => {
         })
         .then(response => response.json())
         // data.token is method to grab authentication token
-        .then(data => {console.log(data.token)
-        }).catch(error => console.log(error))
-    }
+        // props used to utilize loginToken function and update state of token
+        .then(data => props.loginToken(data.token))
+        .catch(error => console.log(error))
+        }
 
         return ( 
             <div>
@@ -43,7 +47,8 @@ const Login = () => {
                     Password: <input type="password" name="password" value={password} onChange={updatePassword} />
                 </label>
                 <br />
-                <button onClick={loginUser}>Login</button>
+                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome'>Login</Link></button>
+                <p>Don't have an account? Create one <Link className='register-tab' to='/register'>here</Link>.</p>
             </div>
          );
 }
