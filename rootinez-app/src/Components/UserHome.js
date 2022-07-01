@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import apiUrl from '../apiUrl'
 
@@ -8,7 +9,7 @@ const UserHome = () => {
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
-        fetch(`${apiUrl}routines`)
+        fetch(`${apiUrl}routines/`)
             .then(response => response.json())
             .then(data => console.log(data))
     }, []);
