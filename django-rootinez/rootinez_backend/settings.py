@@ -39,14 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
-    'crispy_forms',
-    'crispy_bootstrap5',
+    'rest_framework.authtoken',
     'corsheaders',
 ]
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
