@@ -35,6 +35,9 @@ const Login = (props) => {
         .then(data => props.loginToken(data.token))
         .catch(error => console.log(error))
         }
+        
+
+    console.log('hit login page')
 
         return ( 
             <div>

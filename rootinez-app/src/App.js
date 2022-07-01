@@ -10,14 +10,16 @@ import Login from './Components/Login';
 
 function App() {
   // useState of token for authentication
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState('no token yet')
 
   // setting user's token for authentication to be passed between components
   const loginToken = (key) => {
     setToken(key)
-    console.log(token)
     console.log(key)
   }
+
+  console.log('hit app page')
+  console.log(token)
 
   return (
     <div className='App'>
@@ -33,7 +35,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register loginToken={loginToken}/>} />
           <Route path='/login' element={<Login loginToken={loginToken} />} />
-          <Route path='/userhome' element={<UserHome loginToken={loginToken} />} />
+          <Route path='/userhome' element={<UserHome token={token} loginToken={loginToken} />} />
           <Route path='/howto' element={<HowTo />} />
           <Route path='/about' element={<About />} />
         </Routes>

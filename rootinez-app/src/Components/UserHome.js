@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import apiUrl from '../apiUrl'
 
-const UserHome = () => {
+const UserHome = (props) => {
     // state for loading routines upon page load and/or when the routine list is updated
     const [populateRoutines, setPopulateRoutines] = useState({})
 
@@ -32,6 +32,8 @@ const UserHome = () => {
             }
         return greeting
     }
+
+    console.log(props.token)
 
     return ( 
         <div className="userhome-container">
