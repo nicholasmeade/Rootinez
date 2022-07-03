@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register('users', UserView)
 
 urlpatterns = [
-    path('routines/', RoutinesView.as_view(), name='index'),
-    path('routines/<int:pk>', RoutineView.as_view(), name='routine'),
+    path('routine/', RoutinesView.as_view(), name='index'),
+    path('routine/<int:pk>', RoutineView.as_view(), name='routine'),
     path('', include(router.urls)),
 ]

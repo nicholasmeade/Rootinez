@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
+from .routine import Routine
+from .users import User
+from django.db import models
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

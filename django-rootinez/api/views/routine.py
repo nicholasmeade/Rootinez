@@ -16,6 +16,7 @@ class RoutinesView(APIView):
     def post(self, request):
         routines = RoutineSerializer(data=request.data)
         if routines.is_valid():
+            routines.user = request.user.id
             routines.save()
             return Response(routines.data, status=status.HTTP_201_CREATED)
         else:

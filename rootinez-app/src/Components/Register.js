@@ -1,6 +1,5 @@
 import { useState } from "react";
 import apiUrl from "../apiUrl";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 const Register = (props) => {
@@ -8,8 +7,6 @@ const Register = (props) => {
     const [username, setUsername] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
-
-    let params = useParams()
 
     // capturing username input to update state of username
     const updateUsername = (event) => {
@@ -31,27 +28,25 @@ const Register = (props) => {
             body: JSON.stringify({username, password})
         })
         .then(response => response.json())
-        // data.token is method to grab authentication token
-        // props used to utilize loginToken function and update state of token
-        .then(data => props.loginToken(data.token))
+        // props used to utilize setToken to update the state of token
+        .then(data => props.setToken(data.token))
         // if there is an error upon API request
         .catch(error => console.log(error))
     }
 
     // display popup to indicate to user that they've successfully created a new account
     let registerDisplay = ''
+    if (props.token !== '') {
+        registerDisplay = (
+            <div className="registration-success">
+                <p>You've succesfully made an account! Go to your account page <Link className='myaccount-tab' to='/userhome'>here</Link>.</p>
+            </div>
+        )
+    }
 
     const handleSubmit = (event) => {
         // prevent page refresh
         event.preventDefault()
-
-        if (registerDisplay !== '') {
-        registerDisplay = (
-            <div className="registration-success">
-                <p>You've successfully made your account.</p>
-            </div>
-        )
-        }
     }
 
     return ( 
@@ -67,7 +62,7 @@ const Register = (props) => {
                         Password: <input type="password" name="password" value={password} onChange={updatePassword} />
                     </label>
                     <br />
-                    <button onClick={registerUser}><Link className='myaccount-tab' to='/userhome'>Register User</Link></button>
+                    <button onClick={registerUser}>Register User</button>
                 </form>
             </div>
             <div className="registration-message">

@@ -34,6 +34,7 @@ const UserHome = (props) => {
     }
 
     console.log(props.token)
+    console.log(props.username)
 
     return ( 
         <div className="userhome-container">
