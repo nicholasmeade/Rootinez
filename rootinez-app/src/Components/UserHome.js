@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const UserHome = (props) => {
     // state for loading routines upon page load and/or when the routine list is updated
     const [populateRoutines, setPopulateRoutines] = useState({})
+    // state for the user's id
+    const [userID, setUserID] = useState('')
 
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
@@ -14,6 +16,14 @@ const UserHome = (props) => {
             .then(response => response.json())
             .then(data => console.log(data))
     }, []);
+
+    // // API call to database to populate the user's ID
+    // useEffect(() => {
+    //     // fetching user info from API
+    //     fetch(`${apiUrl}userID/`)
+    //         .then(response => response.json())
+    //         .then(data => console.log(data))
+    // })
 
     // dynamic user greeting based on their time zone
     const userGreeting = () => {

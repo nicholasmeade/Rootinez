@@ -7,10 +7,10 @@ from django.db import models
 from ..serializers.routine import RoutineSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-    tasks = RoutineSerializer(many=True, read_only=True)
+    routines = RoutineSerializer(many=True, read_only=True)
     class Meta:
         model = User
-        fields = ['id', 'username', 'password', 'tasks']
+        fields = ['id', 'username', 'password', 'routines']
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
     
     def create(self, validated_data):

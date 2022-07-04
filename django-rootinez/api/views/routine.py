@@ -49,11 +49,13 @@ class RoutineView(APIView):
 
 class AccountView(APIView):
     # get an account's routines by their user_id
-    def get(self, request):
-        user = request.user
-        routines = Routine.objects.all()
-        routinedata = RoutineSerializer(routines, many=True).data
-        test = request.GET.keys()
-        # for user.id in routinedata:
-        #     if user.id == routinedata.id:
-        return Response(routinedata)
+    def get(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        data = UserSerializer(user).data
+        return Response(data)
+
+class GetUserView(APIView):
+    # get an account's user_id
+    def get(request):
+        current_user = request.user
+        return current_user.id

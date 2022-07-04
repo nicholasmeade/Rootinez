@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiUrl from "../apiUrl";
 import {Routes, Route, Link, Navigate} from 'react-router-dom'
+import UserHome from "./UserHome";
 
 const Login = (props) => {
     // useState of username field
@@ -51,7 +52,7 @@ const Login = (props) => {
                     Password: <input type="password" name="password" value={password} onChange={updatePassword} />
                 </label>
                 <br />
-                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome' username={username}>Login</Link></button>
+                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome' params={{from: username}}>Login</Link></button>
                 <p>Don't have an account? Create one <Link className='register-tab' to='/register'>here</Link>.</p>
             </div>
          );
