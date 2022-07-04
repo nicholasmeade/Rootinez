@@ -38,6 +38,10 @@ const Login = (props) => {
 
         return ( 
             <div>
+                <header className='header'>
+                    <button><Link className='home-tab' to='/'>Home</Link></button>
+                    <button><Link className='register-tab' to='/register'>Register Here</Link></button>
+                </header>
                 <h1>Here is the login page.</h1>
                 <label>
                     Username: <input type="text" name="username" value={username} onChange={updateUsername} />

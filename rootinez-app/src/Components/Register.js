@@ -52,6 +52,10 @@ const Register = (props) => {
     return ( 
         <div className="register-container">
             <div className="register-form">
+            <header className='header'>
+                <button><Link className='home-tab' to='/'>Home</Link></button>
+                <button><Link className='login-tab' to='/login'>Login</Link></button>
+            </header>
                 <h1>Here's the Register Page.</h1>
                 <form onSubmit={handleSubmit}>
                     <label>

@@ -2,8 +2,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 from ..models.routine import Routine
 from ..serializers.routine import RoutineSerializer
+from ..serializers.users import UserSerializer
 
 class RoutinesView(APIView):
     # get all routines
@@ -44,3 +46,12 @@ class RoutineView(APIView):
             return Response(updated_routine.data)
         else:
             return Response(updated_routine.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AccountView(APIView):
+    # get an account's routines by their user_id
+    def get(self, request, pk):
+        user = request.user
+        routines = Routine.objects.all()
+        data = RoutineSerializer(routines, many=True).data
+        if user.id == data.user_id:
+            return Response(data)
