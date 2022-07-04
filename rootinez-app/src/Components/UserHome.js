@@ -39,7 +39,7 @@ const UserHome = (props) => {
 
     return ( 
         <div className="userhome-container">
-            <header className='header'>
+            <header className='header-userhome'>
                 <button><Link className='home-tab' to='/'>Home</Link></button>
                 <button><Link className='howto-tab' to='/howto'>Tutorial</Link></button>
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>

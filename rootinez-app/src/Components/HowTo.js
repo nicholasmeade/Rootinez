@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HowTo = () => {
     return ( 
         <div>
-            <header className='header'>
+            <header className='header-howto'>
                 <button><Link className='home-tab' to='/'>Home</Link></button>
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
                 <button>Log Out</button>

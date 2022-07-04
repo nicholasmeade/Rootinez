@@ -38,7 +38,7 @@ const Login = (props) => {
 
         return ( 
             <div>
-                <header className='header'>
+                <header className='header-login'>
                     <button><Link className='home-tab' to='/'>Home</Link></button>
                     <button><Link className='register-tab' to='/register'>Register Here</Link></button>
                 </header>

@@ -1,5 +1,53 @@
 .App {
   text-align: center;
-  background-color: aqua;
+  background-color: rgb(238, 238, 238);
   height: 100vh;
+}
+
+.header-home,
+.header-register,
+.header-login,
+.header-userhome,
+.header-howto,
+.header-about {
+  background-color: rgb(54, 195, 255);
+  height: 50px;
+}
+
+.header-home button,
+.header-register button,
+.header-login button,
+.header-userhome button,
+.header-howto button,
+.header-about button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 10;
+	font: inherit;
+	cursor: pointer;
+  margin-top: 12px;
+}
+
+.home-tab,
+.register-tab,
+.login-tab,
+.myaccount-tab,
+.howto-tab,
+.logout-tab {
+  text-decoration: none;
+}
+
+.about-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 10;
+	font: inherit;
+	cursor: pointer;
+  margin-top: 12px;
+}
+
+.about-tab {
+  text-decoration: none;
 }

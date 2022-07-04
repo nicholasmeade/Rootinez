@@ -28,7 +28,7 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <button><Link className='about-tab' to='/about'>About</Link></button>
+        <button className="about-button"><Link className='about-tab' to='/about'>About</Link></button>
       </footer>
     </div>
   );
