@@ -25,6 +25,9 @@ const UserHome = (props) => {
             .then(data => setUserData(data))
     }, []);
 
+    // map through the user's routines
+    // const mapRoutines = 
+
     // dynamic user greeting based on their time zone
     const userGreeting = () => {
         // obtain the current date and hour of the user
@@ -53,8 +56,7 @@ const UserHome = (props) => {
     }
 
     const rows = [
-        createData('Routine Name', 159, 6.0, 24, 4.0),
-        createData('Routine Description', 237, 9.0, 37, 4.3)
+        createData(`${userData}`, 159, 6.0, 24, 4.0)
     ]
 
     return ( 
@@ -63,7 +65,7 @@ const UserHome = (props) => {
                 <button><Link className='home-tab' to='/'>Home</Link></button>
                 <button><Link className='howto-tab' to='/howto'>Tutorial</Link></button>
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
-                <button>Log Out</button>
+                <button><Link className='logout-tab' to='/logout'>Log Out</Link></button>
             </header>
             <div className="user-greeting">
                 <h2>{userGreeting()}</h2>
@@ -74,28 +76,17 @@ const UserHome = (props) => {
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                    <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                    </TableRow>
+                        <TableRow>
+                            <TableCell>Routines</TableCell>
+                            <TableCell align="left">Description</TableCell>
+                        </TableRow>
                     </TableHead>
                     <TableBody>
-                    {rows.map((row) => (
-                        <TableRow
-                        key={row.name}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                        <TableCell component="th" scope="row">
-                            {row.name}
-                        </TableCell>
-                        <TableCell align="right">{row.calories}</TableCell>
-                        <TableCell align="right">{row.fat}</TableCell>
-                        <TableCell align="right">{row.carbs}</TableCell>
-                        <TableCell align="right">{row.protein}</TableCell>
-                        </TableRow>
+                        {rows.map((row) => (
+                            <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell component="th" scope="row">{row.name}</TableCell>
+                                <TableCell align="center">{row.description}</TableCell>
+                            </TableRow>
                     ))}
                     </TableBody>
                 </Table>

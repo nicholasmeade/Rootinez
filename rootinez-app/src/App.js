@@ -7,6 +7,7 @@ import Register from './Components/Register';
 import UserHome from './Components/UserHome';
 import About from './Components/About';
 import Login from './Components/Login';
+import Logout from './Components/Logout';
 import githubIcon from './Icons/Github.png';
 import linkedinIcon from './Icons/LinkedIn.png';
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/userhome' element={<UserHome token={token} setToken={setToken} />} />
           <Route path='/howto' element={<HowTo />} />
           <Route path='/about' element={<About />} />
+          <Route path='/logout' element={<Logout />} />
         </Routes>
       </main>
     </div>

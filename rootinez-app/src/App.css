@@ -15,7 +15,8 @@
 .header-login,
 .header-userhome,
 .header-howto,
-.header-about {
+.header-about,
+.header-logout {
   background-image: linear-gradient(to top right, rgb(25, 110, 138), rgb(53, 135, 137));
   height: 50px;
   font-family: 'Open Sans', sans-serif;
