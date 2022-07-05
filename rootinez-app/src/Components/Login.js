@@ -33,9 +33,6 @@ const Login = (props) => {
         // if there is an error upon API request
         .catch(error => console.log(error))
         }
-        
-
-    console.log('hit login page')
 
         return ( 
             <div>
@@ -43,7 +40,7 @@ const Login = (props) => {
                     <button><Link className='home-tab' to='/'>Home</Link></button>
                     <button><Link className='register-tab' to='/register'>Register Here</Link></button>
                 </header>
-                <h1>Here is the login page.</h1>
+                <h1>Welcome back to Rootinez. Please log in below.</h1>
                 <label>
                     Username: <input type="text" name="username" value={username} onChange={updateUsername} />
                 </label>

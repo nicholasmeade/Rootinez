@@ -1,9 +1,6 @@
 import {Routes, Route, Link, Navigate} from 'react-router-dom'
 
 const Home = () => {
-
-    console.log('homerun')
-
     return ( 
         <div className="home-container">
             <header className='header-home'>

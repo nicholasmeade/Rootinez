@@ -8,15 +8,10 @@ import UserHome from './Components/UserHome';
 import About from './Components/About';
 import Login from './Components/Login';
 import Logout from './Components/Logout';
-import githubIcon from './Icons/Github.png';
-import linkedinIcon from './Icons/LinkedIn.png';
 
 function App() {
   // useState of token for authentication
   const [token, setToken] = useState('')
-
-  console.log('hit app page')
-  console.log(token)
 
   return (
     <div className='App'>

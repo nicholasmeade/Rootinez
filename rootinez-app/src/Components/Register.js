@@ -56,7 +56,7 @@ const Register = (props) => {
                 <button><Link className='home-tab' to='/'>Home</Link></button>
                 <button><Link className='login-tab' to='/login'>Login</Link></button>
             </header>
-                <h1>Here's the Register Page.</h1>
+                <h1>We're happy to have you join Rootinez. Please make an account below.</h1>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Username: <input type="text" name="username" value={username} onChange={updateUsername} />

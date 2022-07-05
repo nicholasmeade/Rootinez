@@ -25,9 +25,6 @@ const UserHome = (props) => {
             .then(data => setUserData(data))
     }, []);
 
-    // map through the user's routines
-    // const mapRoutines = 
-
     // dynamic user greeting based on their time zone
     const userGreeting = () => {
         // obtain the current date and hour of the user
@@ -36,11 +33,11 @@ const UserHome = (props) => {
         // logic to toggle between greetings based on the hour
         let greeting
             if (hour < 12) {
-                greeting = `Good morning, ${userData.username}!`
+                greeting = `Good morning, ${userData.username}! We hope you have a productive day.`
             } else if (hour >= 12 && hour < 17) {
-                greeting = `Good afternoon, ${userData.username}!`
+                greeting = `Good afternoon, ${userData.username}! We hope you've been having a productive day so far.`
             } else if (hour >= 17 && hour < 24) {
-                greeting = `Good evening, ${userData.username}!`
+                greeting = `Good evening, ${userData.username}! We hope you had a productive day.`
             } else {
                 greeting = "invalid time"
             }
