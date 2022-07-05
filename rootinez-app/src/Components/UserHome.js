@@ -10,29 +10,19 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const UserHome = (props) => {
-    // state for loading routines upon page load and/or when the routine list is updated
-    const [populateRoutines, setPopulateRoutines] = useState({})
-    // state for the user's username
-    const [loggedUser, setLoggedUser] = useState('')
-    // state for the user's id
-    const [userID, setUserID] = useState('')
+    // state for the user's data
+    const [userData, setUserData] = useState({
+        id: "",
+        username: "",
+        routines: []
+    })
 
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
         fetch(`${apiUrl}user/7`)
             .then(response => response.json())
-            .then(data => setLoggedUser(data.username))
-            .then(data => setPopulateRoutines(data.routines))
-            //     setPopulateRoutines(data))
-            // .then(data => {
-            //     const routines = data.routines
-            //     const mapRoutines = routines.map((routine) => {
-            //         console.log(routine.name)
-            //         return routine.name
-            //     })
-            //     setMappedRoutines(mapRoutines)
-            // })
+            .then(data => setUserData(data))
     }, []);
 
     // dynamic user greeting based on their time zone
@@ -43,11 +33,11 @@ const UserHome = (props) => {
         // logic to toggle between greetings based on the hour
         let greeting
             if (hour < 12) {
-                greeting = `Good morning, ${loggedUser}!`
+                greeting = `Good morning, ${userData.username}!`
             } else if (hour >= 12 && hour < 17) {
-                greeting = `Good afternoon, ${loggedUser}!`
+                greeting = `Good afternoon, ${userData.username}!`
             } else if (hour >= 17 && hour < 24) {
-                greeting = `Good evening, ${loggedUser}!`
+                greeting = `Good evening, ${userData.username}!`
             } else {
                 greeting = "invalid time"
             }
