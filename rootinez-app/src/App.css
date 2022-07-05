@@ -1,3 +1,9 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+/* font-family: 'Open Sans', sans-serif; */
+
+/* MOBILE FIRST DESIGN */
+
 .App {
   text-align: center;
   background-color: rgb(238, 238, 238);
@@ -10,8 +16,9 @@
 .header-userhome,
 .header-howto,
 .header-about {
-  background-color: rgb(54, 195, 255);
+  background-image: linear-gradient(to top right, rgb(25, 110, 138), rgb(53, 135, 137));
   height: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .header-home button,
@@ -26,7 +33,7 @@
 	padding: 10;
 	font: inherit;
 	cursor: pointer;
-  margin-top: 12px;
+    margin-top: 12px;
 }
 
 .home-tab,
@@ -34,20 +41,55 @@
 .login-tab,
 .myaccount-tab,
 .howto-tab,
-.logout-tab {
+.logout-tab,
+.about-tab {
   text-decoration: none;
+  color: rgb(233, 231, 231);
+}
+
+.register-link-text,
+.login-button-text {
+	color: black;
 }
 
 .about-button {
-  background: none;
+    background: none;
 	color: inherit;
 	border: none;
 	padding: 10;
 	font: inherit;
 	cursor: pointer;
-  margin-top: 12px;
+ 	margin-top: 12px;
 }
 
 .about-tab {
   text-decoration: none;
+}
+
+.app-footer ul {
+	display: flex;
+	list-style: none;
+}
+
+/* make icons into a grid on about page */
+.language-icons {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* TABLET DESIGN */
+@media screen and (min-width: 760px) {
+
+}
+
+/* DESKTOP DESIGN */
+@media screen and (min-width: 1200px) {
+
+/* change grid layout of icons to be 4x2 */
+.language-icons {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
 }

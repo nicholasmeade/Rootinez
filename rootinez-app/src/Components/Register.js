@@ -39,7 +39,7 @@ const Register = (props) => {
     if (props.token !== '') {
         registerDisplay = (
             <div className="registration-success">
-                <p>You've succesfully made an account! Log into your account <Link className='login-tab' to='/login'>here</Link>.</p>
+                <p>You've succesfully made an account! Log into your account <Link className='login-tab' to='/login'><span className="register-link-text">here</span></Link>.</p>
             </div>
         )
     }

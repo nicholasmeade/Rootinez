@@ -52,8 +52,8 @@ const Login = (props) => {
                     Password: <input type="password" name="password" value={password} onChange={updatePassword} />
                 </label>
                 <br />
-                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome' params={{from: username}}>Login</Link></button>
-                <p>Don't have an account? Create one <Link className='register-tab' to='/register'>here</Link>.</p>
+                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome' params={{from: username}}><span className="login-button-text">Login</span></Link></button>
+                <p>Don't have an account? Create one <Link className='register-tab' to='/register'><span className="register-link-text">here</span></Link>.</p>
             </div>
          );
 }

@@ -7,6 +7,8 @@ import Register from './Components/Register';
 import UserHome from './Components/UserHome';
 import About from './Components/About';
 import Login from './Components/Login';
+import githubIcon from './Icons/Github.png';
+import linkedinIcon from './Icons/LinkedIn.png';
 
 function App() {
   // useState of token for authentication
@@ -27,9 +29,6 @@ function App() {
           <Route path='/about' element={<About />} />
         </Routes>
       </main>
-      <footer>
-        <button className="about-button"><Link className='about-tab' to='/about'>About</Link></button>
-      </footer>
     </div>
   );
 }
