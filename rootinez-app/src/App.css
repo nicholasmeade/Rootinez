@@ -10,6 +10,7 @@
   height: 100vh;
 }
 
+/* header adjustments for all views */
 .header-home,
 .header-register,
 .header-login,
@@ -18,10 +19,13 @@
 .header-about,
 .header-logout {
   background-image: linear-gradient(to top right, rgb(25, 110, 138), rgb(53, 135, 137));
-  height: 50px;
+  height: 60px;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: space-around;
 }
 
+/* all header button settings */
 .header-home button,
 .header-register button,
 .header-login button,
@@ -29,14 +33,27 @@
 .header-howto button,
 .header-about button {
 	background: none;
-	color: inherit;
+	color: none;
 	border: none;
-	padding: 10;
+	border-radius: 10px;
+	margin: 15px;
 	font: inherit;
 	cursor: pointer;
-    margin-top: 12px;
+	transition: all 0.3s ease 0s;
 }
 
+/* all header button settings upon hover */
+.header-home button:hover,
+.header-register button:hover,
+.header-login button:hover,
+.header-userhome button:hover,
+.header-howto button:hover,
+.header-about button:hover {
+	background: rgb(233, 231, 231);
+	cursor: pointer;
+}
+
+/* all text settings within header buttons */
 .home-tab,
 .register-tab,
 .login-tab,
@@ -46,8 +63,23 @@
 .about-tab {
   text-decoration: none;
   color: rgb(233, 231, 231);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
+/* all text settings within header buttons upon hover */
+.home-tab:hover,
+.register-tab:hover,
+.login-tab:hover,
+.myaccount-tab:hover,
+.howto-tab:hover,
+.logout-tab:hover,
+.about-tab:hover {
+  color: rgb(25, 110, 138);
+  cursor: pointer;
+}
+
+/* miscellaneous texts to match rest of field text */
 .register-link-text,
 .login-button-text {
 	color: black;
@@ -72,12 +104,37 @@
 	list-style: none;
 }
 
+.userdata-container {
+	margin: 30px;
+}
+
+.adding-routine-name {
+	width: 500px;
+	height: 30px;
+}
+
+.adding-routine-description {
+	margin-top: 10px;
+	height: 300px;
+	width: 800px;
+}
+
 /* make icons into a grid on about page */
 .language-icons {
 	list-style: none;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* make icons in about footer into flex and centered */
+.about-link-icons {
+	display: flex;
+	justify-content: center;
+}
+
+.about-link-icons li {
+	list-style: none;
 }
 
 /* TABLET DESIGN */

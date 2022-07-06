@@ -33,8 +33,8 @@ const About = () => {
                     <li><img src={pythonIcon} alt="Python Icon" /></li>
                     <li><img src={postgresqlIcon} alt="PostgreSQL Icon" /></li>
                 </ul>
-                <footer className="app-footer">
-                    <ul>
+                <footer className="about-footer">
+                    <ul className="about-link-icons">
                         <li><a href="https://github.com/nicholasmeade" target="blank"><img class="github" src={githubIcon} /></a></li>
                         <li><a href="https://www.linkedin.com/in/nicholas-meade-se/" target="blank"><img class="linkedin" src={linkedinIcon} /></a></li>
                     </ul>

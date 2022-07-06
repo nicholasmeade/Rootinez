@@ -8,7 +8,8 @@ const Logout = () => {
                 <button><Link className='login-tab' to='/login'>Login</Link></button>
                 <button><Link className='about-tab' to='/about'>About</Link></button>
             </header>
-            <h2>This is where the user logs out.</h2>
+            <h2>You have now been logged out. We hope you have a great rest of your day.</h2>
+            <h3>If you'd like to log back in, click on the login button above.</h3>
         </div>
      );
 }

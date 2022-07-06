@@ -17,6 +17,14 @@ const UserHome = (props) => {
         routines: []
     })
 
+    // state for the user's new routine name
+    const [routineName, setRoutineName] = useState('')
+
+    // state for the user's new routine description
+    const [routineDescription, setRoutineDescription] = useState('')
+
+    console.log(props.userID)
+
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
@@ -24,6 +32,16 @@ const UserHome = (props) => {
             .then(response => response.json())
             .then(data => setUserData(data))
     }, []);
+
+    const addRoutine = () => {
+        fetch(`${apiUrl}routine/`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name: routineName}, {description: routineDescription}, {id: props.userID})
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+    }
 
     // dynamic user greeting based on their time zone
     const userGreeting = () => {
@@ -44,18 +62,6 @@ const UserHome = (props) => {
         return greeting
     }
 
-    // test to create table with user's routine data
-    function createData (
-        name: string,
-        description: string,
-    ) {
-        return { name, description}
-    }
-
-    const rows = [
-        createData(`${userData}`, 159, 6.0, 24, 4.0)
-    ]
-
     return ( 
         <div className="userhome-container">
             <header className='header-userhome'>
@@ -64,30 +70,43 @@ const UserHome = (props) => {
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
                 <button><Link className='logout-tab' to='/logout'>Log Out</Link></button>
             </header>
-            <div className="user-greeting">
-                <h2>{userGreeting()}</h2>
-            </div>
-            <div className="routine-header">
-                <h3>Here are your routines.</h3>
-            </div>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Routines</TableCell>
-                            <TableCell align="left">Description</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                <TableCell component="th" scope="row">{row.name}</TableCell>
-                                <TableCell align="center">{row.description}</TableCell>
+            <div className="userdata-container">
+                <div className="user-greeting">
+                    <h2>{userGreeting()}</h2>
+                </div>
+                <div className="routine-header">
+                    <h3>Here are your routines.</h3>
+                </div>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Routines</TableCell>
+                                <TableCell align="left">Description</TableCell>
                             </TableRow>
-                    ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                        </TableHead>
+                        <TableBody>
+                            {userData.routines.map((row) => (
+                                <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                    <TableCell component="th" scope="row">{row.name}</TableCell>
+                                    <TableCell align="left">{row.description}</TableCell>
+                                    <TableCell><button className="routine-edit-button">Edit</button><button className="routine-delete-button">Delete</button></TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <div className="adding-routines-container">
+                    <h1>Inspired to kickstart a new routine? Add a name for your routine and your description for your routine below.</h1>
+                    <form onSubmit={addRoutine}>
+                        <input className="adding-routine-name"></input>
+                        <br/>
+                        <textarea className="adding-routine-description"/>
+                        <br/>
+                        <input type="submit" value="Add New Routine" />
+                    </form>
+                </div>
+            </div>
         </div>
      );
 }

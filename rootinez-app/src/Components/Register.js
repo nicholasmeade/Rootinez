@@ -53,7 +53,7 @@ const Register = (props) => {
         <div className="register-container">
             <div className="register-form">
             <header className='header-register'>
-                <button><Link className='home-tab' to='/'>Home</Link></button>
+                <button><Link className='home-tab' to='/'>Rootinez</Link></button>
                 <button><Link className='login-tab' to='/login'>Login</Link></button>
             </header>
                 <h1>We're happy to have you join Rootinez. Please make an account below.</h1>
