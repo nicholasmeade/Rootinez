@@ -23,7 +23,15 @@ const UserHome = (props) => {
     // state for the user's new routine description
     const [routineDescription, setRoutineDescription] = useState('')
 
-    console.log(props.userID)
+    // capturing routine name input to update state of routineName
+    const updateRoutineName = (event) => {
+        setRoutineName(event.target.value)
+    }
+
+    // capturing routine description input to update state of routineDescription
+    const updateRoutineDescription = (event) => {
+        setRoutineDescription(event.target.value)
+    }
 
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
@@ -33,11 +41,33 @@ const UserHome = (props) => {
             .then(data => setUserData(data))
     }, []);
 
-    const addRoutine = () => {
+    // adding a new routine for the user
+    const addRoutine = (event) => {
+        event.preventDefault()
         fetch(`${apiUrl}routine/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(`${routineName, routineDescription}`)
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+    }
+
+    // editing a routine for the user
+    const editRoutine = (event) => {
+        fetch(`${apiUrl}routine/${userData.routines.id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({name: routineName}, {description: routineDescription}, {id: props.userID})
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+    }
+    
+    // deleting a routine for the user
+    const deleteRoutine = (event) => {
+        fetch(`${apiUrl}routine/${userData.routines.id}`, {
+            method: 'DELETE'
         })
         .then(response => response.json())
         .then(response => console.log(response))
@@ -65,7 +95,7 @@ const UserHome = (props) => {
     return ( 
         <div className="userhome-container">
             <header className='header-userhome'>
-                <button><Link className='home-tab' to='/'>Home</Link></button>
+                <button><Link className='home-tab' to='/'>Rootinez</Link></button>
                 <button><Link className='howto-tab' to='/howto'>Tutorial</Link></button>
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
                 <button><Link className='logout-tab' to='/logout'>Log Out</Link></button>
@@ -90,7 +120,7 @@ const UserHome = (props) => {
                                 <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell component="th" scope="row">{row.name}</TableCell>
                                     <TableCell align="left">{row.description}</TableCell>
-                                    <TableCell><button className="routine-edit-button">Edit</button><button className="routine-delete-button">Delete</button></TableCell>
+                                    <TableCell><button className="routine-edit-button" onClick={editRoutine}>Edit</button><button className="routine-delete-button" onClick={deleteRoutine}>Delete</button></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -99,9 +129,9 @@ const UserHome = (props) => {
                 <div className="adding-routines-container">
                     <h1>Inspired to kickstart a new routine? Add a name for your routine and your description for your routine below.</h1>
                     <form onSubmit={addRoutine}>
-                        <input className="adding-routine-name"></input>
+                        <input className="adding-routine-name" type="text" value={routineName} onChange={updateRoutineName} />
                         <br/>
-                        <textarea className="adding-routine-description"/>
+                        <textarea className="adding-routine-description" value={routineDescription} onChange={updateRoutineDescription}/>
                         <br/>
                         <input type="submit" value="Add New Routine" />
                     </form>

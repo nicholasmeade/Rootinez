@@ -125,6 +125,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
+	justify-content: center;
 }
 
 /* make icons in about footer into flex and centered */
@@ -135,6 +136,7 @@
 
 .about-link-icons li {
 	list-style: none;
+	margin: 10px;
 }
 
 /* TABLET DESIGN */

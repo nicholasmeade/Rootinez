@@ -23,6 +23,12 @@ class RoutinesView(APIView):
             return Response(routines.data, status=status.HTTP_201_CREATED)
         else:
             return Response(routines.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # delete a single routine
+    def delete(self, request, pk):
+        routine = get_object_or_404(Routine, pk=pk)
+        routine.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 class RoutineView(APIView):
     # get a single routine
