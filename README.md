@@ -6,10 +6,25 @@ Rootinez aims to solve two problems - to maintain a user's positive routines tha
 
 ### Motivation
 
+This is a passion project I have wanted to work on for a long time now. I have a big interest in the routines that successful individuals create and maintain, and find myself garnering inspiration from these individuals to improve on my own routines for my own success. Moreover, the grand goal is for a large amount of people to be able to receive a positive benefit from using an application like this.
+
 ### Build Status
+
+As of 7/15/2022:
+
+- currently refactoring user creation, user authentication/authorization on the backend
+- frontend CRUD operations to be built out
+- deployment of version 1.0 of both frontend and backend once these have been completed
 
 ### Technologies Used
 
+Frontend: React.JS, Node.JS, Javascript, HTML, CSS
+Backend: Django, PostgreSQL, Python
+
 ### How to Use Rootinez
 
+In-depth tutorial to come following deployment.
+
 ### Credits
+
+Rootinez was made by Nicholas Meade. This individual project was started during the [General Assembly](https://generalassemb.ly/) Software Engineering Immersive (SEI) as my final project. Development has continued post-graduation.

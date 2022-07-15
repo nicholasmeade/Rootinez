@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models.routine import Routine
+from .models.user import User
 
 # Register your models here.
 
-admin.site.register(Routine)
+admin.site.register(User)
