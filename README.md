@@ -15,8 +15,8 @@ As of 7/22/2022:
 - user creation, authentication/authorization has been refactored on backend
 - currently working on successful implementation in frontend
 - frontend CRUD operations to be refactored after
-- deployment of version 1.0 of frontend coming to showcase what has been accomplished so far
-- deployment of version 1.0 of backend to come pending successful implemention of user creation, authentication/authorization in frontend
+- deployed version 1.0 of frontend today to showcase what has been accomplished so far
+- deployment of version 1.0 of backend to come pending successful implemention of user creation, authentication/authorization and CRUD features in frontend
 
 ### Technologies Used
 
