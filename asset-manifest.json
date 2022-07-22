@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Rootinez/static/css/main.7319050f.css",
+    "main.js": "/Rootinez/static/js/main.0c8983f0.js",
+    "static/js/787.ce7317e9.chunk.js": "/Rootinez/static/js/787.ce7317e9.chunk.js",
+    "index.html": "/Rootinez/index.html",
+    "main.7319050f.css.map": "/Rootinez/static/css/main.7319050f.css.map",
+    "main.0c8983f0.js.map": "/Rootinez/static/js/main.0c8983f0.js.map",
+    "787.ce7317e9.chunk.js.map": "/Rootinez/static/js/787.ce7317e9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7319050f.css",
+    "static/js/main.0c8983f0.js"
+  ]
+}
