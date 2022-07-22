@@ -1,5 +1,6 @@
 {
   "name": "rootinez-app",
+  "homepage": "https://nicholasmeade.github.io/Rootinez/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
