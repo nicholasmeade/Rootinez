@@ -4,8 +4,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from ..models.routine import Routine
-from ..serializers.routine import RoutineSerializer
-from ..serializers.users import UserSerializer
+from ..serializers.routines import RoutineSerializer
+from ..serializers.user import UserSerializer
 
 class RoutinesView(APIView):
     # get all routines

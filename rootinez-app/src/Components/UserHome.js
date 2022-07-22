@@ -36,7 +36,7 @@ const UserHome = (props) => {
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
-        fetch(`${apiUrl}user/7`)
+        fetch(`${apiUrl}user/`)
             .then(response => response.json())
             .then(data => setUserData(data))
     }, []);

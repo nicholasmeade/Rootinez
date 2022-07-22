@@ -26,5 +26,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     # use UserManager anytime User.objects is called
     objects = UserManager()
     def __str__(self):
-        """Return string representation of the user"""
         return self.email

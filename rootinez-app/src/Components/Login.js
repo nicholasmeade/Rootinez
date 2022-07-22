@@ -6,15 +6,15 @@ import axios from "axios"
 
 const Login = (props) => {
     // useState of username field
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
     // useState of username's id
     const [userID, setUserID] = useState('')
 
     // capturing username input to update state of username
-    const updateUsername = (event) => {
-        setUsername(event.target.value)
+    const updateEmail = (event) => {
+        setEmail(event.target.value)
     }
 
     // capturing password input to update state of password
@@ -25,7 +25,7 @@ const Login = (props) => {
     // test axios request - to log in user and update state
     const loginUser = async () => {
         let payload = {
-            username: username,
+            username: email,
             password: password
         }
         try {
@@ -38,29 +38,13 @@ const Login = (props) => {
         try {
             let response = await axios.get(`${apiUrl}users/`)
             console.log(response.data)
-            if (response.data.username === username) {
+            if (response.data.email === email) {
                 setUserID(response.data.id)
             }
         } catch(err) {
             console.log(err)
         }
     }
-
-
-    // const var = async () => {
-    //     // var here
-    //     try {
-    //         let response = await axios.post(xxxxx, payload)
-    //         console.log
-    //     } catch (ex) {
-    //         console.log(ex)
-    //     }
-    // }
-    // try {
-    //     let response = await axios.get(xxxxx)
-    //     console.loglog()
-    // }
-
 
     // // login the user once form is completed with username and password
     // const loginUser = () => {
@@ -88,10 +72,9 @@ const Login = (props) => {
                 </header>
                 <h1>Welcome back to Rootinez. Please log in below.</h1>
                 <form>
-
                 </form>
                 <label>
-                    Username: <input type="text" name="username" value={username} onChange={updateUsername} />
+                    Email: <input type="text" name="username" value={email} onChange={updateEmail} />
                 </label>
                 <label>
                     Password: <input type="password" name="password" value={password} onChange={updatePassword} />

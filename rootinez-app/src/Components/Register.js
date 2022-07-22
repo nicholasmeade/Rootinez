@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Register = (props) => {
     // useState of username field
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
 
     // capturing username input to update state of username
-    const updateUsername = (event) => {
-        setUsername(event.target.value)
+    const updateEmail = (event) => {
+        setEmail(event.target.value)
     }
 
     // capturing password input to update state of password
@@ -19,19 +19,15 @@ const Register = (props) => {
     }
 
      // creeate a new user & login the user once form is completed
-     const registerUser = () => {
-        // passing in state of username and password to match the backend model
-        // post method to API where a new user can be created
-        fetch(`${apiUrl}users/`, {
+     const registerUser = async () => {
+        const response = await fetch(`${apiUrl}sign-up/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({username, password})
+            body: JSON.stringify(email, password)
         })
-        .then(response => response.json())
-        // props used to utilize setToken to update the state of token
-        .then(data => props.setToken(data.token))
-        // if there is an error upon API request
-        .catch(error => console.log(error))
+        if (response.status === 201) {
+            console.log('user created')
+        }
     }
 
     // display popup to indicate to user that they've successfully created a new account
@@ -59,7 +55,7 @@ const Register = (props) => {
                 <h1>We're happy to have you join Rootinez. Please make an account below.</h1>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Username: <input type="text" name="username" value={username} onChange={updateUsername} />
+                        Email: <input type="text" name="username" value={email} onChange={updateEmail} />
                     </label>
                     <br />
                     <label>
