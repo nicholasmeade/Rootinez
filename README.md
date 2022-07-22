@@ -10,11 +10,13 @@ This is a passion project I have wanted to work on for a long time now. I have a
 
 ### Build Status
 
-As of 7/15/2022:
+As of 7/22/2022:
 
-- currently refactoring user creation, user authentication/authorization on the backend
-- frontend CRUD operations to be built out
-- deployment of version 1.0 of both frontend and backend once these have been completed
+- user creation, authentication/authorization has been refactored on backend
+- currently working on successful implementation in frontend
+- frontend CRUD operations to be refactored after
+- deployment of version 1.0 of frontend coming to showcase what has been accomplished so far
+- deployment of version 1.0 of backend to come pending successful implemention of user creation, authentication/authorization in frontend
 
 ### Technologies Used
 
