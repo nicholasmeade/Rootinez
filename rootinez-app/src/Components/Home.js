@@ -14,7 +14,7 @@ const Home = () => {
                 <h2>Routines are our roots. Much of one's success can be mapped back to the routines they establish, improve upon and maintain for a long period of time.</h2>
             </div>
             <div className="register-container">
-                <p>Rootinez is currently undergoing frequent work.</p>
+                <p>Rootinez is currently undergoing frequent work. You can visit the GitHub repository <a href="https://github.com/nicholasmeade/Rootinez">here</a>.</p>
                 <p>Soon, you will be able to propel yourself with your routines on your own account. Stay tuned.</p>
                 <p>For now, you can check out our About section for inspiration for Rootinez and follow as features are rolled out.</p>
                 {/* <p>Ready to propel yourself with your routines? Get started with an account <Link className='register-tab' to='/register'><span className="register-link-text">here</span></Link>.</p> */}
