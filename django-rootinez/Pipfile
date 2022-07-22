@@ -9,6 +9,7 @@ djangorestframework = "*"
 psycopg2-binary = "*"
 
 [dev-packages]
+django = ">=4.0.6"
 
 [requires]
 python_version = "3.10"
