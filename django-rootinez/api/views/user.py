@@ -8,7 +8,7 @@ from rest_framework import status, generics
 
 class SignUp(generics.CreateAPIView):
     authentication_classes = ()
-    premission_classes = ()
+    permission_classes = ()
 
     def post(self, request):
         new_user = UserSerializer(data=request.data)
