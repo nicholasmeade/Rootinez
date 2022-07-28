@@ -19,16 +19,20 @@ const Register = (props) => {
     }
 
      // creeate a new user & login the user once form is completed
-     const registerUser = async () => {
-        const response = await fetch(`${apiUrl}sign-up/`, {
+     const registerUser = () => {
+        fetch(`${apiUrl}sign-up/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(email, password)
+            body: JSON.stringify({"email": email, "password": password})
         })
-        if (response.status === 201) {
-            console.log('user created')
-        }
+        console.log(email, password)
     }
+
+        //     // passing in state of username and password to match the backend model
+    //     fetch(`${apiUrl}auth/`, {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify({username, password})
 
     // display popup to indicate to user that they've successfully created a new account
     let registerDisplay = ''
