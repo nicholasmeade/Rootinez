@@ -17,7 +17,7 @@ class SignUp(generics.CreateAPIView):
             return Response({'user': new_user.data}, status=status.HTTP_201_CREATED)
         else:
             print(new_user.data)
-            return Response(new_user.errors, status=status.HTTP_404_NOT_FOUND)
+            return Response(new_user.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SignIn(generics.CreateAPIView):
     authentication_classes = ()

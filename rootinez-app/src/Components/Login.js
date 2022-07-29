@@ -22,47 +22,10 @@ const Login = (props) => {
         setPassword(event.target.value)
     }
 
-    // test axios request - to log in user and update state
-    const loginUser = async () => {
-        let payload = {
-            username: email,
-            password: password
-        }
-        try {
-            let response = await axios.post(`${apiUrl}auth/`, payload)
-            console.log(response.data)
-            props.setToken(response.data.token)
-        } catch(err) {
-            console.log(err)
-        }
-        try {
-            let response = await axios.get(`${apiUrl}users/`)
-            console.log(response.data)
-            if (response.data.email === email) {
-                setUserID(response.data.id)
-            }
-        } catch(err) {
-            console.log(err)
-        }
+    // logging in a user
+    const loginUser = () => {
+        
     }
-
-    // // login the user once form is completed with username and password
-    // const loginUser = () => {
-    //     // passing in state of username and password to match the backend model
-    //     fetch(`${apiUrl}auth/`, {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({username, password})
-    //     })
-    //     .then(response => response.json())
-    //     // props used to utilize setToken to update the state of token
-    //     .then(data => {
-    //         props.setToken(data.token)
-
-    //     })
-    //     // if there is an error upon API request
-    //     .catch(error => console.log(error))
-    //     }
 
         return ( 
             <div>

@@ -7,6 +7,8 @@ const Register = (props) => {
     const [email, setEmail] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
+    // useState of a user registering a valid account
+    const [registeredUser, setRegisteredUser] = useState('')
 
     // capturing username input to update state of username
     const updateEmail = (event) => {
@@ -25,21 +27,20 @@ const Register = (props) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({"email": email, "password": password})
         })
-        console.log(email, password)
     }
-
-        //     // passing in state of username and password to match the backend model
-    //     fetch(`${apiUrl}auth/`, {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({username, password})
 
     // display popup to indicate to user that they've successfully created a new account
     let registerDisplay = ''
-    if (props.token !== '') {
+    if (registeredUser === 'registration successful') {
         registerDisplay = (
             <div className="registration-success">
                 <p>You've succesfully made an account! Log into your account <Link className='login-tab' to='/login'><span className="register-link-text">here</span></Link>.</p>
+            </div>
+        )
+    } else if (registeredUser === 'invalid') {
+        registerDisplay = (
+            <div className="registration-failure">
+                <p>Please try again - your email may not be valid or your password length is less than 6 characters.</p>
             </div>
         )
     }
