@@ -9,8 +9,6 @@ const Login = (props) => {
     const [email, setEmail] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
-    // useState of username's id
-    const [userID, setUserID] = useState('')
 
     // capturing username input to update state of username
     const updateEmail = (event) => {
@@ -24,7 +22,13 @@ const Login = (props) => {
 
     // logging in a user
     const loginUser = () => {
-        
+        fetch(`${apiUrl}sign-in/`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({"email": email, "password": password})
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
     }
 
         return ( 
@@ -43,7 +47,7 @@ const Login = (props) => {
                     Password: <input type="password" name="password" value={password} onChange={updatePassword} />
                 </label>
                 <br />
-                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome' userID={userID}><span className="login-button-text">Login</span></Link></button>
+                <button onClick={loginUser}><Link className='myaccount-tab' to='/userhome'><span className="login-button-text">Login</span></Link></button>
                 <p>Don't have an account? Create one <Link className='register-tab' to='/register'><span className="register-link-text">here</span></Link>.</p>
             </div>
          );
