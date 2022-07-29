@@ -4,10 +4,10 @@ from django.contrib.auth import get_user_model
 from .routines import RoutineSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-    # routines = RoutineSerializer(many=True, read_only=True)
+    routines = RoutineSerializer(many=True, read_only=True)
     class Meta:
         model = get_user_model()
-        fields = ['email', 'password']
+        fields = ['id', 'email', 'password', 'routines']
         extra_kwargs = {'password': {'write_only': True, 'required': True, 'min_length': 5}}
     
     def create(self, validated_data):

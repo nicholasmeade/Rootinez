@@ -36,7 +36,7 @@ const UserHome = (props) => {
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
-        fetch(`${apiUrl}user/`)
+        fetch(`${apiUrl}routine/`)
             .then(response => response.json())
             .then(data => setUserData(data))
     }, []);
@@ -73,6 +73,15 @@ const UserHome = (props) => {
         .then(response => console.log(response))
     }
 
+    // logging out a user
+    const logoutUser = () => {
+        fetch(`${apiUrl}sign-out/`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+    }
+
     // dynamic user greeting based on their time zone
     const userGreeting = () => {
         // obtain the current date and hour of the user
@@ -98,7 +107,7 @@ const UserHome = (props) => {
                 <button><Link className='home-tab' to='/'>Rootinez</Link></button>
                 <button><Link className='howto-tab' to='/howto'>Tutorial</Link></button>
                 <button><Link className='myaccount-tab' to='/userhome'>My Account</Link></button>
-                <button><Link className='logout-tab' to='/logout'>Log Out</Link></button>
+                <button><Link className='logout-tab' to='/logout' onClick={logoutUser}>Log Out</Link></button>
             </header>
             <div className="userdata-container">
                 <div className="user-greeting">
