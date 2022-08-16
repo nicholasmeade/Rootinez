@@ -68,6 +68,6 @@ class AccountView(APIView):
 
 class GetUserView(APIView):
     # get an account's user_id
-    def get(request):
+    def get(self, request, pk):
         current_user = request.user
         return current_user.id

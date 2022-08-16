@@ -4,4 +4,4 @@ from ..models.routine import Routine
 class RoutineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Routine
-        fields = ['id', 'name', 'description', 'owner']
+        fields = ['name', 'description', 'owner']

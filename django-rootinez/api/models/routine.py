@@ -6,5 +6,6 @@ class Routine(models.Model):
     description = models.CharField(max_length=500)
     owner = models.ForeignKey(
         get_user_model(),
+        related_name='routines',
         on_delete=models.CASCADE
     )
