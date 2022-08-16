@@ -39,7 +39,18 @@ const Login = (props) => {
         .then(response => setLoginAccount(response))
     }
 
+    // showing loginAccount state before/after a login request is submitted
     console.log(loginAccount)
+
+    // display popup to indicate to user that they've successfully logged in and direct them to their homepage
+    let loggedInDisplay = ''
+    if (loginAccount.user.token != '') {
+        loggedInDisplay = (
+            <div className="login-success">
+                <p>Welcome back! Go to your homepage <Link className='login-tab' to='/login'><span className="register-link-text">here</span></Link>.</p>
+            </div>
+        )
+    }
 
         return ( 
             <div>
@@ -58,6 +69,9 @@ const Login = (props) => {
                 </label>
                 <br />
                 <button onClick={loginUser}><span className="login-button-text">Login</span></button>
+                <div className="login-success-message">
+                    {loggedInDisplay}
+                </div>
                 <p>Don't have an account? Create one <Link className='register-tab' to='/register'><span className="register-link-text">here</span></Link>.</p>
             </div>
          );
