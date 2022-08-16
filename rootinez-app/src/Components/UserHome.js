@@ -10,20 +10,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const UserHome = (props) => {
-    // state for the user's data
+    // // state for the user's data
     const [userData, setUserData] = useState({
-        description: "",
         id: "",
-        name: "",
-        owner: ""
+        email: "",
+        routines: []
     })
-    // const [userData, setUserData] = useState({
-    //     id: "",
-    //     username: "",
-    //     routines: []
-    // })
 
-    console.log(props.login)
+    console.log(props.login.user.token)
     console.log(userData)
 
     // state for the user's new routine name
@@ -45,9 +39,14 @@ const UserHome = (props) => {
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
-        fetch(`${apiUrl}routine/${props.login.user.id}`)
+        fetch(`${apiUrl}users/${props.login.user.id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${props.login.user.token}`
+            }
+        })
             .then(response => response.json())
-            // .then(response => console.log(response))
             .then(response => setUserData(response))
     }, []);
 
@@ -65,7 +64,7 @@ const UserHome = (props) => {
 
     // editing a routine for the user
     const editRoutine = (event) => {
-        fetch(`${apiUrl}routine/${userData.routines.id}`, {
+        fetch(`${apiUrl}users/${userData.routines.id}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({name: routineName}, {description: routineDescription}, {id: props.userID})
@@ -135,7 +134,7 @@ const UserHome = (props) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {userData.id.map((row) => (
+                            {userData.routines.map((row) => (
                                 <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell component="th" scope="row">{row.name}</TableCell>
                                     <TableCell align="left">{row.description}</TableCell>

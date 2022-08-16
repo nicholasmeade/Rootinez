@@ -60,9 +60,11 @@ class RoutineView(APIView):
             return Response(updated_routine.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AccountView(APIView):
+    # permission_classes = ()
+    # authentication_classes = ()
     # get an account's routines by their user_id
     def get(self, request, pk):
-        user = get_object_or_404(User, pk=pk)
+        user = request.user
         data = UserSerializer(user).data
         return Response(data)
 
