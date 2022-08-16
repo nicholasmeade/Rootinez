@@ -20,27 +20,23 @@ const Register = (props) => {
         setPassword(event.target.value)
     }
 
-     // creeate a new user & login the user once form is completed
+     // register a new user
      const registerUser = () => {
         fetch(`${apiUrl}sign-up/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({"email": email, "password": password})
         })
+        .then(response => response.json())
+        .then(response => setRegisteredUser(response))
     }
 
     // display popup to indicate to user that they've successfully created a new account
     let registerDisplay = ''
-    if (registeredUser === 'registration successful') {
+    if (registeredUser != '') {
         registerDisplay = (
             <div className="registration-success">
                 <p>You've succesfully made an account! Log into your account <Link className='login-tab' to='/login'><span className="register-link-text">here</span></Link>.</p>
-            </div>
-        )
-    } else if (registeredUser === 'invalid') {
-        registerDisplay = (
-            <div className="registration-failure">
-                <p>Please try again - your email may not be valid or your password length is less than 6 characters.</p>
             </div>
         )
     }
