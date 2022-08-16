@@ -41,6 +41,9 @@ const UserHome = (props) => {
             .then(data => setUserData(data))
     }, []);
 
+    // test to see if loginAccount state is passed from login component to userhome component
+    console.log(props.state)
+
     // adding a new routine for the user
     const addRoutine = (event) => {
         event.preventDefault()
@@ -116,7 +119,7 @@ const UserHome = (props) => {
                 <div className="routine-header">
                     <h3>Here are your routines.</h3>
                 </div>
-                <TableContainer component={Paper}>
+                {/* <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
@@ -134,7 +137,7 @@ const UserHome = (props) => {
                             ))}
                         </TableBody>
                     </Table>
-                </TableContainer>
+                </TableContainer> */}
                 <div className="adding-routines-container">
                     <h1>Inspired to kickstart a new routine? Add a name for your routine and your description for your routine below.</h1>
                     <form onSubmit={addRoutine}>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import apiUrl from "../apiUrl";
-import {Routes, Route, Link, Navigate} from 'react-router-dom'
+import {Routes, Route, Link, Navigate, useNavigate} from 'react-router-dom'
 import UserHome from "./UserHome";
 import axios from "axios"
 
 const Login = (props) => {
+    // using Navigate
+    const Navigate = useNavigate()
     // useState of username field
     const [email, setEmail] = useState('')
     // useState of password field
@@ -36,7 +38,13 @@ const Login = (props) => {
             body: JSON.stringify({"email": email, "password": password})
         })
         .then(response => response.json())
-        .then(response => setLoginAccount(response))
+        .then(response => {
+            setLoginAccount(response)
+            if (loginAccount.user.id != '') {
+                console.log('hit navigate')
+                Navigate('/userhome')
+            }
+        })
     }
 
     // showing loginAccount state before/after a login request is submitted
@@ -47,7 +55,7 @@ const Login = (props) => {
     if (loginAccount.user.token != '') {
         loggedInDisplay = (
             <div className="login-success">
-                <p>Welcome back! Go to your homepage <Link className='login-tab' to='/login'><span className="register-link-text">here</span></Link>.</p>
+                <p>Welcome back! Go to your homepage <Link className='myaccount-tab' to='/userhome' state={loginAccount}><span className="register-link-text">here</span></Link>.</p>
             </div>
         )
     }

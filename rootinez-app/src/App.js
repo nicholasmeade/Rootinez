@@ -10,17 +10,15 @@ import Login from './Components/Login';
 import Logout from './Components/Logout';
 
 function App() {
-  // useState of token for authentication
-  const [token, setToken] = useState('')
 
   return (
     <div className='App'>
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register token={token} setToken={setToken} />} />
-          <Route path='/login' element={<Login token={token} setToken={setToken} />} />
-          <Route path='/userhome' element={<UserHome token={token} setToken={setToken} />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/userhome' element={<UserHome />} />
           <Route path='/howto' element={<HowTo />} />
           <Route path='/about' element={<About />} />
           <Route path='/logout' element={<Logout />} />
