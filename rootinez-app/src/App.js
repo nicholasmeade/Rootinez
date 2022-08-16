@@ -11,15 +11,24 @@ import Logout from './Components/Logout';
 
 function App() {
 
+    // useState of user's credentials
+    const [loginAccount, setLoginAccount] = useState({
+      user: {
+          email: '',
+          id: '',
+          token: ''
+      }
+  })
+
   return (
     <div className='App'>
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/userhome' element={<UserHome />} />
-          <Route path='/howto' element={<HowTo />} />
+          <Route path='/login' element={<Login login={loginAccount} setLogin={setLoginAccount} />} />
+          <Route path='/userhome' element={<UserHome login={loginAccount} setLogin={setLoginAccount} />} />
+          <Route path='/howto' element={<HowTo login={loginAccount} setLogin={setLoginAccount} />} />
           <Route path='/about' element={<About />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>

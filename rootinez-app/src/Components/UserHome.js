@@ -17,6 +17,8 @@ const UserHome = (props) => {
         routines: []
     })
 
+    console.log(props.login)
+
     // state for the user's new routine name
     const [routineName, setRoutineName] = useState('')
 

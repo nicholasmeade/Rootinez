@@ -11,14 +11,8 @@ const Login = (props) => {
     const [email, setEmail] = useState('')
     // useState of password field
     const [password, setPassword] = useState('')
-    // useState of user's credentials
-    const [loginAccount, setLoginAccount] = useState({
-        user: {
-            email: '',
-            id: '',
-            token: ''
-        }
-    })
+
+    console.log(props.login)
 
     // capturing username input to update state of username
     const updateEmail = (event) => {
@@ -38,24 +32,25 @@ const Login = (props) => {
             body: JSON.stringify({"email": email, "password": password})
         })
         .then(response => response.json())
-        .then(response => {
-            setLoginAccount(response)
-            if (loginAccount.user.id != '') {
-                console.log('hit navigate')
-                Navigate('/userhome')
-            }
-        })
+        .then(response => props.setLogin(response))
+        // .then(response => {
+        //     setLoginAccount(response)
+        //     if (loginAccount.user.id != '') {
+        //         console.log('hit navigate')
+        //         Navigate('/userhome')
+        //     }
+        // })
     }
 
     // showing loginAccount state before/after a login request is submitted
-    console.log(loginAccount)
+    // console.log(loginAccount)
 
     // display popup to indicate to user that they've successfully logged in and direct them to their homepage
     let loggedInDisplay = ''
-    if (loginAccount.user.token != '') {
+    if (props.login.user.token != '') {
         loggedInDisplay = (
             <div className="login-success">
-                <p>Welcome back! Go to your homepage <Link className='myaccount-tab' to='/userhome' state={loginAccount}><span className="register-link-text">here</span></Link>.</p>
+                <p>Welcome back! Go to your homepage <Link className='myaccount-tab' to='/userhome'><span className="register-link-text">here</span></Link>.</p>
             </div>
         )
     }
