@@ -8,6 +8,9 @@ from ..serializers.routines import RoutineSerializer
 from ..serializers.user import UserSerializer
 
 class RoutinesView(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+
     # get all routines
     def get(self, request):
         routines = Routine.objects.all()
@@ -31,6 +34,9 @@ class RoutinesView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class RoutineView(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+    
     # get a single routine
     def get(self, request, pk):
         routine = get_object_or_404(Routine, pk=pk)

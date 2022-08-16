@@ -12,12 +12,19 @@ import Paper from '@mui/material/Paper';
 const UserHome = (props) => {
     // state for the user's data
     const [userData, setUserData] = useState({
+        description: "",
         id: "",
-        username: "",
-        routines: []
+        name: "",
+        owner: ""
     })
+    // const [userData, setUserData] = useState({
+    //     id: "",
+    //     username: "",
+    //     routines: []
+    // })
 
     console.log(props.login)
+    console.log(userData)
 
     // state for the user's new routine name
     const [routineName, setRoutineName] = useState('')
@@ -38,13 +45,11 @@ const UserHome = (props) => {
     // API call to database to populate the user's routines on page load and/or when the routine list is updated
     useEffect(() => {
         // fetching routine info from API
-        fetch(`${apiUrl}routine/`)
+        fetch(`${apiUrl}routine/${props.login.user.id}`)
             .then(response => response.json())
-            .then(data => setUserData(data))
+            // .then(response => console.log(response))
+            .then(response => setUserData(response))
     }, []);
-
-    // test to see if loginAccount state is passed from login component to userhome component
-    console.log(props.state)
 
     // adding a new routine for the user
     const addRoutine = (event) => {
@@ -95,11 +100,11 @@ const UserHome = (props) => {
         // logic to toggle between greetings based on the hour
         let greeting
             if (hour < 12) {
-                greeting = `Good morning, ${userData.username}! We hope you have a productive day.`
+                greeting = `Good morning, ${props.login.user.email}! We hope you have a productive day.`
             } else if (hour >= 12 && hour < 17) {
-                greeting = `Good afternoon, ${userData.username}! We hope you've been having a productive day so far.`
+                greeting = `Good afternoon, ${props.login.user.email}! We hope you've been having a productive day so far.`
             } else if (hour >= 17 && hour < 24) {
-                greeting = `Good evening, ${userData.username}! We hope you had a productive day.`
+                greeting = `Good evening, ${props.login.user.email}! We hope you had a productive day.`
             } else {
                 greeting = "invalid time"
             }
@@ -121,7 +126,7 @@ const UserHome = (props) => {
                 <div className="routine-header">
                     <h3>Here are your routines.</h3>
                 </div>
-                {/* <TableContainer component={Paper}>
+                <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
@@ -130,7 +135,7 @@ const UserHome = (props) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {userData.routines.map((row) => (
+                            {userData.id.map((row) => (
                                 <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell component="th" scope="row">{row.name}</TableCell>
                                     <TableCell align="left">{row.description}</TableCell>
@@ -139,7 +144,7 @@ const UserHome = (props) => {
                             ))}
                         </TableBody>
                     </Table>
-                </TableContainer> */}
+                </TableContainer>
                 <div className="adding-routines-container">
                     <h1>Inspired to kickstart a new routine? Add a name for your routine and your description for your routine below.</h1>
                     <form onSubmit={addRoutine}>

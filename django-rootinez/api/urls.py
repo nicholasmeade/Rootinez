@@ -16,7 +16,7 @@ urlpatterns = [
     path('routine/', RoutinesView.as_view(), name='index'),
     path('routine/<int:pk>', RoutineView.as_view(), name='routine'),
     path('account/<int:pk>', AccountView.as_view(), name='index'),
-    path('user/<int:pk>', AccountView.as_view(), name='account'),
+    path('users/<int:pk>', RoutineView.as_view(), name='account'),
     path('userID/', GetUserView.as_view(), name='account'),
     path('', include(router.urls)),
 ]
