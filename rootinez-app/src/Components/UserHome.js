@@ -47,7 +47,7 @@ const UserHome = (props) => {
             }
         })
             .then(response => response.json())
-            .then(response => setUserData(response))
+            .then(response => console.log(response))
     }, []);
 
     // adding a new routine for the user
@@ -55,7 +55,9 @@ const UserHome = (props) => {
         event.preventDefault()
         fetch(`${apiUrl}routine/`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(`${routineName, routineDescription}`)
         })
         .then(response => response.json())

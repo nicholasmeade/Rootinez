@@ -6,10 +6,9 @@ from django.contrib.auth.models import User
 from ..models.routine import Routine
 from ..serializers.routines import RoutineSerializer
 from ..serializers.user import UserSerializer
+from django.contrib.auth import get_user_model
 
 class RoutinesView(APIView):
-    authentication_classes = ()
-    permission_classes = ()
 
     # get all routines
     def get(self, request):
@@ -34,8 +33,6 @@ class RoutinesView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class RoutineView(APIView):
-    authentication_classes = ()
-    permission_classes = ()
     
     # get a single routine
     def get(self, request, pk):
@@ -60,8 +57,6 @@ class RoutineView(APIView):
             return Response(updated_routine.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AccountView(APIView):
-    # permission_classes = ()
-    # authentication_classes = ()
     # get an account's routines by their user_id
     def get(self, request, pk):
         user = request.user
