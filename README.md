@@ -20,8 +20,8 @@ As of 7/28/2022:
 
 ### Technologies Used
 
-Frontend: React.JS, Node.JS, Javascript, HTML, CSS   
-Backend: Django, PostgreSQL, Python
+Frontend: React.JS, Javascript, HTML, CSS   
+Backend: Django, PostgreSQL, Python, Node.JS
 
 ### How to Use Rootinez
 
